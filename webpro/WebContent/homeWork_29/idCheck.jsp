@@ -49,7 +49,7 @@ private String password ="java";
 	//실행문에 값 셋팅 (몇번째 파라미터, 들어갈 변수)
 	ps.setString(1, userId);
 	
-	//실행  rs.next?
+	//실행
 	rs = ps.executeQuery();
 	
 	// 실행결과 비교하기 - 사용가능불가능 상태 출력

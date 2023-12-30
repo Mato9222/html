@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+pre{
+	background-color : lightgreen;
+}
+body {
+	min-width:1000px;
+}
+label {
+	display : inline-block;
+	width : 80px;
+	height : 30px;
+}
+textarea {
+	vertical-align : top;
+}
+form {
+	box-size : border-box;
+	border : 1px solid blue;
+	height : auto;
+	margin : 10px;
+	padding : 10px;
+	width : 20%;
+}
+input[name=addr] {
+	background-color : skyblue;
+}
+#addr + input { 
+	border : 2px solid red;
+}
+#addr ~ input {
+	border :3px dotted green;
+}
+/* #addr
+input#addr
+input[id=addr] */
+</style>
+</head>
+<body>
+<pre >
+입력후 전송하면 ~~.jsp로 전송한다.
+전송 하기 위해서는 input 필드에 반드시 name속성이 있어야 한다.
+title 		: 마우스를 요소 위에 올려 놓으면 메모박스가 나타난다.
+required	: 필수항목 
+autofocus	: 처음 실행시 커서의 위치를 설정
+pattern 	: 정규식 
+placeholder	: input 필드에 나타나는 예시, 제목, 내용
+readonly	: 값을 변경 할 수 없는 필드, 반드시 value속성이 설정
+</pre>
+<h1> 회원가입 화면 </h1>
+<form> 
+	<label> 이름 </label>
+	<input name="text" title="홍길동" autofocus required> <br>
+
+	<label id="addr"> 주소 </label>
+	<input name="addr"> <br>
+
+	<label> 이메일 </label>
+	<input name="text" pattern="[a-zA-z0-9]+@([a-zA-z]+[0-9]*)(\.[a-zA-z]+){1,2)"> <br>
+	
+	<label> 성별 </label>
+	<input type="radio" name="gend" value="Man" checked>남자
+	<input type="radio" name="gend" value="Wo">여자 <br> 
+	
+	<label> 내용 </label>
+	<textarea name="cont" rows="20" cols="25"></textarea>
+	<br><br>
+	
+	<input type="submit">
+	<input type="reset">
+
+</form>
+</body>
+</html>

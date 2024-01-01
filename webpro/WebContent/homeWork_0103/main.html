@@ -9,22 +9,21 @@ body {
 }
 div {
 	box-sizing: border-box;
-	border-radius: 100px;
-	border : 1px solid blue;
-	margin : 3px;
-	padding : 5px;
+/* 	border-radius: 100px; */
+	border : 1px solid blue; 
+	/* margin : 3px;
+	padding : 5px; */
 }
 #menu {
-	border-radius: 100px;
 	border : 5px inset red;
 	background : #F2F5A9;
 	border-left : none;
 	border-right : none;
 	list-style-type : none;
 	height : 50px;
-	padding-bottom : 10px;
-	margin : 30px auto;
-	
+	/* padding-bottom : 10px;
+	margin : 30px auto; */
+
 }
 #menu li {
 	/*border : 2px solid blue;  */
@@ -45,29 +44,67 @@ div {
 #left, #right, #main {
 	height : 500px;
 }
-
 #left {
 	float : left;
-	width : calc(25% - 1%);
-	border : 2px dotted red;
+	width : calc(25% - 1%); 
+	background-color:  #E8F5FF;
+ 	border : 2px dotted red;
+}
+#left ul {
+	/* background: #D2E1FF; */
+	margin-right : 50px;
+}
+#left li {
+	list-style-type : none;
+	height : 35px;
+	width : calc(100%);
+	border : 1px solid #5882FA;
+	background : #D2E1FF;
+	text-align	 : center;
+	/* margin-left: -40px; */
+}
+#left a {
+	text-decoration: none;
+	height : 20px;
+	width : 100px;
 }
 #right {
 	float : right;
 	width : calc(25% - 1%);
-	background : red;
+	background-color: #E8F5FF;
+	text-align : center;
 }
 #main {
 	float : left;
 	width : calc(51% - 1%);
 }
 #footer {
-	background : #E9B7F7;
+	background : #F5ECCE;
 	clear : both;
+	text-align : center;
 }
 iframe {
 	border : none;
 	width : calc(99%);
 	height : 450px;
+}
+a:link {
+	color : black;
+}
+a:visited {
+	color : black;
+}
+a:hover {
+	font-size : 1.2rem;
+}
+#shopcart {
+	height : 180px;
+}
+#bt {
+	border-radius: 30px;
+	background:  #000080;
+	color : ;
+	border : none;
 }
 
 /* .s1 {
@@ -84,7 +121,6 @@ iframe {
 	/* font-size : 1.2rem; 
 	letter-spacing : 6px;
 } 
-
 /* a:active {
 	font-size : 1.5rem;
 } */
@@ -94,8 +130,9 @@ iframe {
 <div>
 	<img src="../images/check.png">
 	<haeder> <a href=""> Web Shop </a></haeder>
+
 </div>
-<div>
+<div id="m1">
 <nav>
 	<ul id="menu">
 		<li> <a href="#" class="s1"> HOME</a></li>
@@ -135,26 +172,27 @@ iframe {
 		<div id="shopcart">
 		<h4>ShopCart</h4>
 		<p>현재 쇼핑카트에 물품이 없습니다. </p>
-		<a href="쇼핑카트.html">쇼핑카트 보기</a>
+		<a href="쇼핑카트.html">쇼핑카트 보기</a> <br>
 		</div>
+		
 		<div id="login">
 		<h4>Log In</h4>
 		<form action="#">
-			<label> 아이디 </label>
+			<label> &nbsp;&nbsp;&nbsp;아이디 </label>
 			<input type="text" name="id"><br>
 			<label> 비밀번호 </label>
-			<input type="text" name="pass"><br>
-			<input type="button" value="로그인"> 
-			<input type="button" value="초기화"> <br>
-			<a href="회원가입.html"> 회원가입 </a>
-			<a href="쇼핑카트.html"> 비밀번호 분실 </a> 
-			
+			<input type="text" name="pass"> <br><br> &nbsp;
+			<input id="bt" type="button" value="로그인"> &nbsp;&nbsp;&nbsp;&nbsp;
+			<input id="bt" type="button" value="초기화"> <br>
+			<input id="bt" type="button" value="회원가입" src="회원가입.html"> <br>
+			<input id="bt" type="button" value="비밀번호 분실">
+
 		</form>
 		</div>
 	</aside>
 </div>
 
-<div id="footer">대덕인재개발원 402</div>
+<div id="footer">대덕인재개발원 402-3</div>
 
 </body>
 </html>

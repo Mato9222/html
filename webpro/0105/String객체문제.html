@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel=stylesheet href="../css/public.css">
+<script>
+proc1 = () => {
+	// 입력
+	jumin = prompt("주민등록번호를 입력하세요","123456-1234567")
+	
+	// 추출
+	yy = jumin.substr(0,2);
+	mm = jumin.substr(2,2);
+	dd = jumin.substr(4,2);
+	age = jumin.substr(0,2);
+	gen = jumin.substr(7,1);
+	
+	// 비교
+	if(gen=='1'||gen=='3') {
+		gend = `성별 : 남자`;
+	} else {
+		gend = `성별 : 여자`;
+	}
+	
+	if(gen=='3'||gen=='4') { 
+		year = 2000;
+	//	str += `생일 : 20${yy}년 ${mm}월 ${dd}일`; 		
+	} else { 
+		year = 1900;
+	//	str += `생일 : 19${yy}년 ${mm}월 ${dd}일`;
+	}
+	
+	console.log(str);
+	
+	today = new Date();
+	
+	age = today.getFullYear() - (year+parseInt(yy));
+	
+	code = jumin.substr(0,8);
+	// 출력내용
+	str = `주민번호 : ${code}******<br>`
+	str += `생일 : ${year+parseInt(yy)}년 ${mm}월 ${dd}일 <br>`;
+	str += `성별 : ${gend} <br>`;
+	str += `나이 : ${age}`;
+	
+	document.getElementById('result1').innerHTML = str;
+}
+str="";
+proc2 = () => {
+	milti = "234567892345"
+	sum = 0;
+	//입력 
+	input = prompt("주민등록번호를 입력하세요","123456-1234567"); //110325-3123456
+	
+	// - 을 ""로 변경
+	reinput = input.replace("-",""); // 1103253123456
+	
+	for(i = 0 ; i < milti.length; i++) {
+		sum += milti[i] * reinput[i]
+		//sum += milti.substr(i,1) * reinput.substr(i,1);
+	}
+	
+	vsum = 11 - sum % 11
+	
+	/* if(vsum == 10 ) {
+		vsum = 0;
+	} else if ( vsum == 11) {
+		vsum = 1;
+	} else {
+		break;
+	} */
+	vsum = vsum % 10;
+	renum = reinput.substr(reinput.lenhth-1,1);
+	
+	if ( vsum == reinput.substr(-1)) {
+		str = `진짜번호입니다`;
+	} else {
+		str = `가짜번호입니다`;
+	}
+	console.log(str, vsum, reinput.substr(-1));
+
+	res = `주민번호 : ${input.slice(0,8)}******* <br>`;
+	res += str;
+	
+	document.getElementById('result2').innerHTML = res;
+	
+}
+</script>
+</head>
+<body>
+
+<div class="box">
+<h4> prompt로 주민등록번호를 입력 받아 생년월일과 성별, 나이를 출력하는 프로그램 </h4>
+<input type="button" value="확인" onclick="proc1()">
+<br><br>
+<div id="result1"></div>
+</div>
+
+<div class="box">
+<h4> 주민등록번호를 입력 받아 주민등록번호의 유효성을 검사하는 프로그램 </h4>
+<input type="button" value="확인" onclick="proc2()">
+<br><br>
+<div id="result2"></div>
+</div>
+</body>
+</html>

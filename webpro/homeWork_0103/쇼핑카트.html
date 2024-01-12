@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<Style>
+body {
+	text-align: center;
+}
+table {
+	border : 4px solid silver;
+	box-sizing: border-box;
+	border-collapse: collapse;
+	margin-left : auto;
+	margin-right : auto;
+}
+th {
+	border : 1px soild ;
+	width : 150px;
+	height : 50px;
+	
+}
+td {
+	border : 1px soild ;
+	width : 150px;
+	height : 50px;
+	text-align: center;
+}
+input {
+	width : 150px;
+	height : 40px;
+	margin-left : auto;
+	margin-right : auto;
+}
+input #bt {
+	width : 50px;
+	height : 30px;
+}
+</Style>
+</head>
+<body>
+
+<H1> 장바구니 페이지 </H1>
+<form>
+<table border="1">
+	<tr>
+		<th>품목</th>
+		<th>가격</th>
+		<th>수량</th>
+		<th>합계</th>
+	</tr>
+	<tr>
+		<td>컴퓨터세트</td>
+		<td>2,000,000원</td>
+		<td><input type="text"></td>
+		<td><input type="text"></td>
+	</tr>
+	<tr>
+		<td>티셔츠</td>
+		<td>50,000원</td>
+		<td><input type="text"></td>
+		<td><input type="text"></td>
+	</tr>
+	<tr>
+		<td>음악파일</td>
+		<td>1,000원</td>
+		<td><input type="text"></td>
+		<td><input type="text"></td>
+	</tr>
+	<tr>
+		<td>영화파일</td>
+		<td>5,000원</td>
+		<td><input type="text"></td>
+		<td><input type="text"></td>
+	</tr>
+</table> <br>
+
+<input class="bt" type="button" value="계산">
+<input class="bt" type="submit" value="구매">
+<input class="bt" type="reset" value="초기화">
+</form>
+</body>
+
+</html>

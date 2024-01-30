@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel=stylesheet href="../css/public.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script>
+$(() => {
+	$('#obarr').on('click', () => {
+		$.getJSON (
+			'../0117/obarr.jsp',
+			function(res){
+				
+				code = "";
+				$.each(res,function (i, v) {
+					code += `${i}번째 자료 <br>`;
+					code += `이름 : ${v.name}<br>`;
+					code += `주소 : ${v.addr}<br>`;
+					code += `번호 : ${v.tel}<br><br>`;
+					
+				})
+				$('#result4').html(code);
+			}
+		)
+	})
+	
+	$('#jobj').on('click', () => {
+		$.ajax({
+			url : '../0117/obj.jsp',
+			type : 'get',
+			success : function (res) {
+				alert("성공")
+			},
+			error : function(xhr) {
+				alert("상태 : " + xhr.status);
+			},
+			dataType : 'json'
+		})
+	})
+	
+	$('#arr').on('click', () => {
+		$.ajax({
+			url : '../0117/arr.jsp',
+			type : 'get',
+			success : res => {
+				// res : 배열
+				code = "<ol>";
+				$.each(res, function(i, val) {
+					code += "<li>"+val+"</li>"	
+				})
+				code += "<ol>";
+				
+				$('#result2').html(code);
+				
+				
+			},
+			error : (xhr) => {
+				alert("상태 : " + xhr.status);
+			}, 
+			dataType : 'json'
+		})
+		
+	})
+	
+	$('#text').on('click', () => {
+		
+		// get의 내용의 순서는 바꿀수 없다.
+		// $.get("aaa.jsp",  'id=aaa', function(res){ },'json' ) 
+		// $.getJSON("aaa.jsp", 'id=aaa',function(res){})
+		
+		$.ajax({ // 밑의 항목들은 순서가 바뀌어도 된다.
+			url : "../0117/text.jsp",
+			type : "get",
+			// data : "id = aaa", 아직 내용이없기때문에 생략
+			success : function (res) {
+				// res응답데이타 : 	홍길동/개나리/진달래/무궁화/수선화/라일락
+				 	res = res.split("/");
+					
+					code = "<ul>";
+					
+					res.forEach((str,index)=>{
+						code += "<li>" +  str +"</li>";
+					})
+					
+					code += "</ul>";
+					
+					$('#result1').html(code);
+				
+			},
+			error : function(xhr) {
+				alert('상태 : '+ xhr.status); // 200, 404, 500, 403 // 200은 성공이지만 에러창에서 발생하는 200은 json에러? 코딩에러? 
+			},
+			dataType : 'text'
+			
+		})
+	})
+	
+})
+</script>
+</head>
+<body>
+
+<div class="box">
+<h4>  </h4>
+<input type="button" value="text" id ="text">
+<input type="button" value="arr" id="arr">
+<input type="button" value="jsonobj" id="jobj">
+<input type="button" value="jobarr" id="obarr">
+<br><br>
+<div id="content">
+	<div id="result1" class="res"></div>
+	<div id="result2" class="res"></div>
+	<div id="result3" class="res"></div>
+	<div id="result4" class="res"></div>
+</div>
+</div>
+
+</body>
+</html>

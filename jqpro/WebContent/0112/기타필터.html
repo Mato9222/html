@@ -52,7 +52,7 @@ $(() => {
 			if(vtag == "INPUT") {
 				str += vtag + "=> " + $(v).attr('name') + " : ";
 				str += $(v).val() + "<br>"
-			} else  if (vtag == "SPAN") {
+			} else  if (vtag != "BR") { //(vtag == "SPAN") {
 				str += vtag + " => " + $(v).html() + "<br>";
 			}
 			//$(this).attr('name')

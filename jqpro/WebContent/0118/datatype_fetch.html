@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel=stylesheet href="../css/public.css">
+<script src="../js/jquery-3.7.1.min.js"></script>
+<script>
+/* obarrproc = () => {
+	fetch("../0117/obarr.jsp")
+	.then(resp => resp.json() )
+	.then(data => {
+	
+} */
+
+objproc = () => {
+	fetch("../0117/obj.jsp")
+	.then(resp => {
+		resp.json();
+	})
+	
+	.then(data => {
+		code = `이름 : ${data.name} <br>`;
+		code += `주소 : ${data.addr} <br>`;
+		code += `번호 : ${data.tel} <br>`;
+		$('#result3').html(code);
+	})
+
+}
+
+arrproc = () => {
+	
+	fetch("../0117/arr.jsp")
+	.then((response) => {
+		response.json();
+	})
+	.then(data => {
+		code = "<ol>";
+		
+		data.forEach((vs,index) => {
+			cade += "<li>" + vs + "</li>";
+		})
+		code += "</ol>"
+		
+		$('#resutl2').html(code);
+	}) // 배열
+	
+}
+
+textproc = () => {
+	//let promi = fetch('http://localhost/jqpro/0117/text.jsp')
+	fetch('http://192.168.142.37/jqpro/0117/text.jsp', {
+		mod : 'cors'
+	})
+	.then(function(resp) {
+		console.log("resp",resp);
+		
+		return resp.text();
+	})
+	.then((data) => {
+		// data : 홍길동/개나리/진달래/무궁화/수선화/라일락
+		
+		str = data.split("/");
+		// str 배열을 이용해서 출력 
+		// 자바스크립트 포문
+		/* str.forEach((vs, index) => {
+		}) */
+		code ="<ul>";
+		$.each(str,(i, val) => {
+			code += "<li>" + str[i] + "</li>"
+		})
+		code += "</ul>";
+		
+		$('#result1').html(code);
+	})
+	
+}
+</script>
+</head>
+<body>
+
+<div class="box">
+<h4>  </h4>
+<input type="button" value="text" onclick="textproc()">
+<input type="button" value="arr" onclick="arrproc()">
+<input type="button" value="jsonobj" onclick="objproc()">
+<input type="button" value="jobarr" onclick="obarrproc()">
+<br><br>
+<div id="content">
+	<div id="result1" class="res"></div>
+	<div id="result2" class="res"></div>
+	<div id="result3" class="res"></div>
+	<div id="result4" class="res"></div>
+</div>
+</div>
+
+</body>
+</html>

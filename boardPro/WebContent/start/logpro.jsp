@@ -42,7 +42,7 @@ $(() => {
 			type : 'post',
 			success : function(res){
 				$('.dlog').html(res);
-				location.href = '<%=request.getContextPath()%>/start/'
+				location.href = '<%=request.getContextPath()%>/start/index.jsp'
 			},
 			error : function(xhr) {
 				alert("상태 : " + xhr.status)

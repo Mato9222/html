@@ -44,6 +44,7 @@
 			형식) <mapper resource="경로명/파일명.xml"/>
 		 -->
 		 <mapper resource="kr/or/ddit/mapper/board.xml"/>
+		 <mapper resource="kr/or/ddit/mapper/reply.xml"/>
 		 <mapper resource="kr/or/ddit/mapper/member-mapper.xml"/>
 	</mappers>
 </configuration>

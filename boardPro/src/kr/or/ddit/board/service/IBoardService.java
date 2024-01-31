@@ -5,6 +5,7 @@ import java.util.Map;
 
 import kr.or.ddit.board.vo.BoardVO;
 import kr.or.ddit.board.vo.PageVO;
+import kr.or.ddit.board.vo.ReplyVO;
 
 public interface IBoardService {
 	
@@ -29,13 +30,17 @@ public interface IBoardService {
 	// 계산 - 시작페이지, 끝페이지, 시작 글번호, 끝 글번호
 	public PageVO pageInfo(int pageNo, String sType, String sWord);
 	
-	// 댓글쓰기
 	
+	// 댓글쓰기
+	public int insertReply(ReplyVO vo);
 	
 	// 댓글 수정
-	
+	public int updateReply(ReplyVO vo);
 	
 	// 댓글 삭제
+	public int deleteReply(ReplyVO vo);
+	
+	// 댓글 리스트
 	
 	
 }

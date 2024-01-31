@@ -7,6 +7,7 @@ import java.util.Map;
 import kr.or.ddit.board.dao.BoardDaoImpl;
 import kr.or.ddit.board.vo.BoardVO;
 import kr.or.ddit.board.vo.PageVO;
+import kr.or.ddit.board.vo.ReplyVO;
 
 public class BoardServiceImpl implements IBoardService {
 	
@@ -94,6 +95,24 @@ public class BoardServiceImpl implements IBoardService {
 	public int updateHit(int num) {
 		// TODO Auto-generated method stub
 		return dao.updateHit(num);
+	}
+
+	@Override
+	public int insertReply(ReplyVO vo) {
+		// TODO Auto-generated method stub
+		return dao.insertReply(vo);
+	}
+
+	@Override
+	public int updateReply(ReplyVO vo) {
+		// TODO Auto-generated method stub
+		return dao.updateReply(vo);
+	}
+
+	@Override
+	public int deleteReply(ReplyVO vo) {
+		// TODO Auto-generated method stub
+		return dao.deleteReply(vo);
 	}
 
 }

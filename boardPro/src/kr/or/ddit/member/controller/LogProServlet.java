@@ -43,7 +43,8 @@ public class LogProServlet extends HttpServlet {
 		
 		// service 메소드 호출 - 결과값 얻기
 		MemberVO mvo = service.logSelect(vo);
-
+		// mem_id, mem_name
+		
 		// session객체 생성(얻기)
 		HttpSession session = request.getSession();
 		

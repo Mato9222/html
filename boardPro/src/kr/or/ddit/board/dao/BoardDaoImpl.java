@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import kr.or.ddit.board.vo.BoardVO;
 import kr.or.ddit.board.vo.PageVO;
+import kr.or.ddit.board.vo.ReplyVO;
 import kr.or.ddit.config.MybatisUtil;
 
 public class BoardDaoImpl implements IBoardDao{
@@ -139,6 +140,36 @@ public class BoardDaoImpl implements IBoardDao{
 		}
 		
 		return res;
+	}
+
+	@Override
+	public int insertReply(ReplyVO vo) {
+SqlSession session = null;
+		
+		int res = 0;
+		try {
+			session = MybatisUtil.getSqlSession();
+			
+			res = session.insert("reply.insertReply", vo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(session != null) session.close();
+		}
+		
+		return res;
+	}
+
+	@Override
+	public int updateReply(ReplyVO vo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int deleteReply(ReplyVO vo) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }
